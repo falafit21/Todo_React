@@ -1,5 +1,6 @@
 import React, { useEffect,useState }  from 'react' //usestate like attribute(const), useEffect get parameter = called back
 import { Form,Container,Button, Row,Col,Table} from 'react-bootstrap'
+import {database as db} from '../services/firebase.config';
 
 
 export default function HomePage() {
@@ -7,6 +8,10 @@ export default function HomePage() {
     const [date,setDate] = useState('')
     const [data,setData] = useState([])
     const [number,setNumber] = useState(1)
+    // useEffect(() => {
+    //     db.ref("/Todo").push({Number: 'HelloTest'})
+        
+    // }, [])
 
     const handleInputOnChange=(e)=>{
         // console.log(e.target.value);
@@ -37,6 +42,12 @@ export default function HomePage() {
             setNumber(number+1)
         // const temp = [{todo:input, date:date }]
         // setData (temp)
+        db.ref("/Todos").push(
+            {
+                number:number,
+                todo:input, 
+                date:date
+            })
 
     }
 

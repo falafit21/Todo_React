@@ -15,6 +15,7 @@ export default function Header() {
                 >
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/post">Post</Nav.Link>
+                <Nav.Link href="/list">List</Nav.Link>
                 
                 </Nav>
                 <Form className="d-flex">
